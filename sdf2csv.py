@@ -9,6 +9,9 @@ def sdf2csv(sdf_filename):
     
     props_dict = dict()
     for idx, mol in enumerate(suppl):
+        if mol is None:
+            continue
+        
         try:
             prop_dict = mol.GetPropsAsDict()
         except UnicodeDecodeError:
