@@ -1,6 +1,7 @@
 import os
 import sys
 import pandas as pd
+from tqdm import tqdm
 from rdkit import Chem
 
 def sdf2csv(sdf_filename):
@@ -8,7 +9,7 @@ def sdf2csv(sdf_filename):
     print(f'# of molecuels in the input sdf file = {len(suppl)}')
     
     props_dict = dict()
-    for idx, mol in enumerate(suppl):
+    for idx, mol in enumerate(tqdm(suppl)):
         if mol is None:
             continue
         
